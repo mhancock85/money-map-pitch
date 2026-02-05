@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Money Map Pitch Deck</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Slide Specific Overrides */
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+        background-color: var(--color-bg-dark);
+        color: white;
+      }
+
+      .slides-container {
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+        scroll-behavior: smooth;
+      }
+
+      .slide {
+        height: 100vh;
+        width: 100vw;
+        scroll-snap-align: start;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem;
+        box-sizing: border-box;
+        background-color: var(--color-bg-dark);
+        overflow: hidden;
+      }
+
+      .slide:nth-child(even) {
+        background-color: #0d2522; /* Slightly lighter for contrast */
+      }
+
+      .slide-content {
+        max-width: 1200px;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .slide-bg-decoration {
+        position: absolute;
+        width: 60vw;
+        height: 60vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(212, 242, 62, 0.05) 0%,
+          rgba(212, 242, 62, 0) 70%
+        );
+        z-index: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      .title-huge {
+        font-size: 5rem;
+        line-height: 1.1;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #ffffff 0%, #d4f23e 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .subtitle {
+        font-size: 2rem;
+        color: #aebdbb;
+        font-weight: 300;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+        margin-top: 4rem;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .card-glass {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2.5rem;
+        border-radius: 24px;
+        backdrop-filter: blur(10px);
+      }
+
+      .card-icon {
+        font-size: 3rem;
+        color: var(--color-primary);
+        margin-bottom: 1.5rem;
+      }
+
+      .highlight {
+        color: var(--color-primary);
+      }
+
+      .slide-footer {
+        position: absolute;
+        bottom: 2rem;
+        width: 100%;
+        text-align: center;
+        opacity: 0.3;
+        font-size: 0.9rem;
+        pointer-events: none;
+      }
+
+      /* Navigation Dots */
+      .nav-dots {
+        position: fixed;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 100;
+      }
+
+      .nav-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .nav-dot.active {
+        background: var(--color-primary);
+        transform: scale(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-dots" id="navDots">
+      <!-- JS will populate -->
+    </div>
+
+    <div class="slides-container" id="slidesContainer">
+      <!-- Slide 1: Cover -->
+      <section class="slide" id="slide1">
+        <div class="slide-bg-decoration"></div>
+        <div class="slide-content" style="text-align: center">
+          <h1 class="title-huge">Money Map</h1>
+          <p class="subtitle">
+            The Financial Operating System<br />for
+            <span class="highlight">Global Citizens</span>
+          </p>
+          <div style="margin-top: 4rem">
+            <div
+              class="tag"
+              style="
+                background: rgba(212, 242, 62, 0.1);
+                color: #d4f23e;
+                font-size: 1rem;
+                padding: 0.8rem 1.6rem;
+              "
+            >
+              MVP PITCH
+            </div>
+          </div>
+        </div>
+        <div class="slide-footer">Use Arrow Keys or Scroll to Navigate</div>
+      </section>
+
+      <!-- Slide 2: The Problem -->
+      <section class="slide" id="slide2">
+        <div class="slide-content">
+          <h2 style="font-size: 3.5rem; margin-bottom: 1rem">The Problem</h2>
+          <p class="subtitle" style="margin-bottom: 4rem">
+            Financial management is broken for the international generation.
+          </p>
+
+          <div class="grid-3">
+            <div class="card-glass">
+              <i class="fa-solid fa-earth-americas card-icon"></i>
+              <h3 style="font-size: 1.5rem; margin-bottom: 1rem">
+                Fragmented Finances
+              </h3>
+              <p style="color: #aebdbb">
+                Bank accounts in UK, AU, and US. Credit cards everywhere. No
+                single source of truth.
+              </p>
+            </div>
+            <div class="card-glass">
+              <i class="fa-solid fa-file-invoice-dollar card-icon"></i>
+              <h3 style="font-size: 1.5rem; margin-bottom: 1rem">
+                Manual Chaos
+              </h3>
+              <p style="color: #aebdbb">
+                Hours spent downloading PDFs and updating complex spreadsheets
+                that break.
+              </p>
+            </div>
+            <div class="card-glass">
+              <i class="fa-solid fa-brain card-icon"></i>
+              <h3 style="font-size: 1.5rem; margin-bottom: 1rem">
+                Dumb Categorization
+              </h3>
+              <p style="color: #aebdbb">
+                Traditional apps don't know that "AMZN MKTPLACE" was a business
+                expense, not a gift.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: The Solution -->
+      <section class="slide" id="slide3">
+        <div class="slide-content">
+          <div class="grid-2">
+            <div>
+              <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem">
+                The Solution
+              </h2>
+              <h3
+                class="highlight"
+                style="font-size: 2rem; margin-bottom: 2rem"
+              >
+                "Set and Forget" Intelligence.
+              </h3>
+              <p
+                style="font-size: 1.25rem; color: #aebdbb; margin-bottom: 2rem"
+              >
+                An intelligent layer that sits above your banks, unifying your
+                financial life without the manual work.
+              </p>
+
+              <ul style="list-style: none; space-y: 1.5rem">
+                <li
+                  style="
+                    display: flex;
+                    gap: 1rem;
+                    margin-bottom: 1.5rem;
+                    align-items: center;
+                    font-size: 1.25rem;
+                  "
+                >
+                  <div
+                    style="
+                      background: var(--color-primary);
+                      color: black;
+                      width: 40px;
+                      height: 40px;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-weight: bold;
+                    "
+                  >
+                    1
+                  </div>
+                  <span>Drop PDF Statements (Wise, Revolut, Banks)</span>
+                </li>
+                <li
+                  style="
+                    display: flex;
+                    gap: 1rem;
+                    margin-bottom: 1.5rem;
+                    align-items: center;
+                    font-size: 1.25rem;
+                  "
+                >
+                  <div
+                    style="
+                      background: var(--color-primary);
+                      color: black;
+                      width: 40px;
+                      height: 40px;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-weight: bold;
+                    "
+                  >
+                    2
+                  </div>
+                  <span>AI Extracts & Categorizes Contextually</span>
+                </li>
+                <li
+                  style="
+                    display: flex;
+                    gap: 1rem;
+                    margin-bottom: 1.5rem;
+                    align-items: center;
+                    font-size: 1.25rem;
+                  "
+                >
+                  <div
+                    style="
+                      background: var(--color-primary);
+                      color: black;
+                      width: 40px;
+                      height: 40px;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      font-weight: bold;
+                    "
+                  >
+                    3
+                  </div>
+                  <span>Instant Premium Dashboard</span>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="card-glass"
+              style="
+                height: 400px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255, 255, 255, 0.05);
+              "
+            >
+              <!-- Placeholder for dashboard visual -->
+              <div style="text-align: center">
+                <i
+                  class="fa-solid fa-wand-magic-sparkles"
+                  style="
+                    font-size: 5rem;
+                    color: var(--color-primary);
+                    margin-bottom: 1rem;
+                  "
+                ></i>
+                <p style="font-size: 1.2rem">AI Powered Categorization</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: Target Market -->
+      <section class="slide" id="slide4">
+        <div class="slide-content">
+          <h2 style="font-size: 3.5rem; margin-bottom: 1rem">Business Model</h2>
+          <p class="subtitle" style="margin-bottom: 4rem">
+            SaaS for the Modern Money Coach.
+          </p>
+
+          <div class="grid-2">
+            <div
+              class="card-glass"
+              style="border-left: 4px solid var(--color-primary)"
+            >
+              <h3 style="font-size: 2rem; margin-bottom: 1rem">
+                The "Money Coach" OS
+              </h3>
+              <p
+                style="font-size: 1.1rem; color: #aebdbb; margin-bottom: 1.5rem"
+              >
+                Coaches currently spend 40% of their time chasing clients for
+                spreadsheets. We automate the data entry.
+              </p>
+              <hr
+                style="
+                  border-color: rgba(255, 255, 255, 0.1);
+                  margin-bottom: 1.5rem;
+                "
+              />
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                "
+              >
+                <span>Subscription Model</span>
+                <span
+                  class="highlight"
+                  style="font-size: 1.5rem; font-weight: bold"
+                  >£29 / mo / client</span
+                >
+              </div>
+            </div>
+
+            <div>
+              <h3
+                style="font-size: 1.5rem; margin-bottom: 1.5rem; color: white"
+              >
+                Why Wise & Burning Heroes?
+              </h3>
+              <div style="margin-bottom: 2rem">
+                <p
+                  style="
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    color: var(--color-primary);
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Wise Integration
+                </p>
+                <p style="color: #aebdbb">
+                  We are the perfect use case for the Wise API - helping digital
+                  nomads manage multi-currency cashflow.
+                </p>
+              </div>
+              <div>
+                <p
+                  style="
+                    font-weight: bold;
+                    font-size: 1.2rem;
+                    color: var(--color-primary);
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Scalability
+                </p>
+                <p style="color: #aebdbb">
+                  Cloud-native (Modal + Supabase) architecture scales to zero
+                  cost when not in use.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 5: The Ask -->
+      <section class="slide" id="slide5">
+        <div
+          class="slide-bg-decoration"
+          style="
+            background: radial-gradient(
+              circle,
+              rgba(212, 242, 62, 0.1) 0%,
+              rgba(212, 242, 62, 0) 50%
+            );
+          "
+        ></div>
+        <div class="slide-content" style="text-align: center">
+          <h2 class="title-huge">Join Us</h2>
+          <p class="subtitle" style="margin-bottom: 3rem">
+            We are building the financial clarity layer for the next generation.
+          </p>
+
+          <div style="display: flex; justify-content: center; gap: 2rem">
+            <div class="card-glass" style="padding: 2rem 4rem">
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem">Seeking</h3>
+              <p style="font-size: 2.5rem; font-weight: bold; color: white">
+                Mentorship
+              </p>
+              <p style="color: var(--color-primary); margin-top: 0.5rem">
+                Technical & Strategy
+              </p>
+            </div>
+            <div class="card-glass" style="padding: 2rem 4rem">
+              <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem">
+                Validation
+              </h3>
+              <p style="font-size: 2.5rem; font-weight: bold; color: white">
+                Beta Users
+              </p>
+              <p style="color: var(--color-primary); margin-top: 0.5rem">
+                Burning Heroes Community
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      // Simple Navigation Logic
+      const container = document.getElementById("slidesContainer");
+      const slides = document.querySelectorAll(".slide");
+      const dotsContainer = document.getElementById("navDots");
+
+      // Create dots
+      slides.forEach((_, index) => {
+        const dot = document.createElement("div");
+        dot.className = `nav-dot ${index === 0 ? "active" : ""}`;
+        dot.onclick = () => {
+          slides[index].scrollIntoView({ behavior: "smooth" });
+        };
+        dotsContainer.appendChild(dot);
+      });
+
+      // Update dots on scroll
+      container.addEventListener("scroll", () => {
+        const index = Math.round(container.scrollTop / window.innerHeight);
+        document.querySelectorAll(".nav-dot").forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      });
+
+      // Add keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        const currentScroll = container.scrollTop;
+        const height = window.innerHeight;
+
+        if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+          e.preventDefault();
+          container.scrollBy({ top: height, behavior: "smooth" });
+        } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+          e.preventDefault();
+          container.scrollBy({ top: -height, behavior: "smooth" });
+        }
+      });
+    </script>
+  </body>
+</html>
