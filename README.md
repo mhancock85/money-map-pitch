@@ -16,6 +16,11 @@ It uses the same "Finazze" design language as the main website.
 - **Slide 4**: Business Model (SaaS for Money Coaches)
 - **Slide 5**: Call to Action (Join Us)
 
+## PowerPoint Version
+A `.pptx` version of this deck is available in this folder:
+- **File**: `Money_Map_Pitch_Deck.pptx`
+- **Generated via**: `create_ppt.py` (Run `../../.venv/bin/python3 create_ppt.py` to regenerate)
+
 ## Customization
 - Edit `index.html` to change text.
 - Styles are handled in `style.css` (base) and `index.html` (slide specifics).
